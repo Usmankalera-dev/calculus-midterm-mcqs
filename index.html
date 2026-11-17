@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculus Midterm MCQs — Practice</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>Calculus Midterm MCQs</h1>
+  <p class="subtitle">Midterm Tyaari • <span id="header-total">300</span> MCQs</p>
+</header>
+
+<main class="container">
+
+  <!-- ============ HOME ============ -->
+  <section id="view-home" class="view">
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-num" id="stat-total">300</div>
+        <div class="stat-label">Kul Sawal</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-answered">0</div>
+        <div class="stat-label">Jawab Diye Gaye</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-correct">0</div>
+        <div class="stat-label">Sahi Jawab</div>
+      </div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-label"><span id="home-progress-text">0 / 300 Mukammal</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="home-progress-fill"></div></div>
+    </div>
+
+    <div class="topic-box">
+      <p class="topic-title">Topic Chunein:</p>
+      <div class="topic-chips" id="topic-chips"></div>
+    </div>
+
+    <div class="shuffle-box">
+      <span class="shuffle-title">Tarteeb:</span>
+      <div class="toggle" role="group" aria-label="Tarteeb">
+        <button type="button" id="btn-order-original" class="toggle-btn active">Asal</button>
+        <button type="button" id="btn-order-shuffle" class="toggle-btn">Be Tarteeb</button>
+      </div>
+    </div>
+
+    <div class="home-actions">
+      <button type="button" id="btn-start" class="btn btn-primary btn-block">Practice Shuru Karein</button>
+      <button type="button" id="btn-result-home" class="btn btn-gold btn-block hidden">Natija Dekhein</button>
+      <button type="button" id="btn-restart" class="btn btn-outline btn-block">Naye Sira Se Shuru Karein</button>
+      <button type="button" id="btn-clear" class="btn btn-text">Progress Saaf Karein</button>
+    </div>
+
+    <p class="hint">Aapki progress isi device par save rehti hai — page band kar ke dobara kholein to wahin se jaari rakh sakte hain.</p>
+  </section>
+
+  <!-- ============ PRACTICE ============ -->
+  <section id="view-practice" class="view hidden">
+    <div class="practice-top">
+      <button type="button" id="btn-home" class="btn btn-small btn-outline">Home</button>
+      <span class="q-count" id="q-count">Sawal 1 / 300</span>
+      <button type="button" id="btn-jump" class="btn btn-small btn-outline">Tamam Sawal</button>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="practice-progress-fill"></div></div>
+      <div class="progress-label"><span id="practice-progress-text">0 / 300 jawab diye gaye</span></div>
+    </div>
+
+    <div class="question-card">
+      <p class="q-topic" id="q-topic"></p>
+      <p class="question-text" id="question-text"></p>
+    </div>
+
+    <div class="options" id="options"></div>
+
+    <p class="feedback" id="feedback" aria-live="polite"></p>
+    <p class="explain" id="explain" aria-live="polite"></p>
+
+    <div class="practice-nav">
+      <button type="button" id="btn-prev" class="btn btn-outline">Pichla Sawal</button>
+      <button type="button" id="btn-next" class="btn btn-primary hidden">Agla Sawal</button>
+      <button type="button" id="btn-result-practice" class="btn btn-gold hidden">Natija Dekhein</button>
+    </div>
+  </section>
+
+  <!-- ============ RESULT ============ -->
+  <section id="view-result" class="view hidden">
+    <h2 class="result-title">Aapka Natija</h2>
+    <div class="result-score">
+      <div class="score-num" id="result-percent">0%</div>
+      <div class="score-sub" id="result-summary">0 sahi / 300</div>
+    </div>
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-num" id="result-total">300</div>
+        <div class="stat-label">Kul Sawal</div>
+      </div>
+      <div class="stat-card stat-green">
+        <div class="stat-num" id="result-correct">0</div>
+        <div class="stat-label">Sahi</div>
+      </div>
+      <div class="stat-card stat-red">
+        <div class="stat-num" id="result-wrong">0</div>
+        <div class="stat-label">Ghalat</div>
+      </div>
+    </div>
+
+    <div id="review-wrap" class="hidden">
+      <h3 class="review-title">Ghalat Jawab Dekhein</h3>
+      <div id="review-list"></div>
+    </div>
+    <p id="review-empty" class="hint hidden">Mubarak ho — koi ghalat jawab nahi!</p>
+
+    <div class="home-actions">
+      <button type="button" id="btn-again" class="btn btn-primary btn-block">Dobara Practice Karein</button>
+      <button type="button" id="btn-result-home2" class="btn btn-outline btn-block">Home Par Jayein</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ JUMP GRID MODAL ============ -->
+<div id="jump-modal" class="modal hidden" role="dialog" aria-label="Tamam Sawal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>Tamam Sawal</h3>
+      <button type="button" id="btn-jump-close" class="btn btn-small btn-outline">Band Karein</button>
+    </div>
+    <p class="modal-legend"><span class="dot dot-green"></span> Sahi &nbsp;<span class="dot dot-red"></span> Ghalat &nbsp;<span class="dot dot-plain"></span> Baqi</p>
+    <div class="jump-grid" id="jump-grid"></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>Calculus Midterm — 300 MCQs</p>
+  <p>Made by Usman Kalera</p>
+</footer>
+
+<script src="mcqs.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
